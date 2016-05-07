@@ -45,6 +45,7 @@ var hinclude;
       if (req.readyState === 4) {
         if (req.status === 200 || req.status === 304) {
           element.innerHTML = req.responseText;
+          element.onSuccess && element.onSuccess();
         }
         element.className = hinclude.classprefix + req.status;
       }
@@ -67,6 +68,7 @@ var hinclude;
         include = hinclude.buffer.pop();
         if (include[1].status === 200 || include[1].status === 304) {
           include[0].innerHTML = include[1].responseText;
+          include[0].onSuccess && include[0].onSuccess();
         }
         include[0].className = hinclude.classprefix + include[1].status;
       }

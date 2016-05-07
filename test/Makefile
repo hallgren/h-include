@@ -1,4 +1,4 @@
-test: basic none small_media large_media lint
+test: basic none small_media large_media success_callback lint
 
 basic: server
 	phantomjs basic.js $(test_port)
@@ -11,8 +11,12 @@ small_media: server
 
 large_media: server
 	phantomjs large_media.js $(test_port)
+
+success_callback: server
+	phantomjs success-callback.js $(test_port)
+
 lint:
-	node ../node_modules/jslint/bin/jslint.js ../h-include.js
+	jshint ../h-include.js
 
 server:
 	npm run server &

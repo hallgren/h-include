@@ -5,4 +5,7 @@ var tests = [
   ["#b", "this text overwrote what was just there."]
 ];
 
-runTests("basic.html", tests);
+// First test need to wait a while for the web server to start
+setTimeout(function(){
+  runTests("basic.html", tests);
+}, 1000);
